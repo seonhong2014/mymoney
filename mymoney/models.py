@@ -61,6 +61,8 @@ class Item(Base):
     label = Column(Unicode(100), nullable=False)
     datetime = Column(DateTime, nullable = False)
     value = Column(Integer, nullable = False)
+    keyword = Column(UnicodeText, nullable=True)
+    note = Column(UnicodeText, nullable=True)
 
 
 class User(Base):

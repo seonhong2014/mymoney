@@ -22,13 +22,13 @@ def logout(request):
     return HTTPFound(location=request.route_url('home'),
                      headers=headers)
 
-@view_config(route_name='itemview')
+@view_config(route_name='itemview', renderer='templates/itemview.pt')
 def item_view(request):
     #userid = request.matchdict['userid']
     userid = request.session['userid']
     item_list = DBSession.query(Item).filter_by(userid=userid).order_by(Item.datetime).all()
 
-    return dict(list=item_list)
+    return dict(project='MyMoney', list=item_list)
 
 @view_config(route_name='home', renderer='templates/mytemplate.pt')
 def my_view(request):
