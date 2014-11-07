@@ -11,7 +11,7 @@
     <title>Alchemy Scaffold for The Pyramid Web Framework</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="//oss.maxcdn.com/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//oss.maxcdn.com/libs/twitter-bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet">
     <link href="//cdn.datatables.net/1.10.3/css/jquery.dataTables.css" rel="stylesheet">
 
     <!-- Custom styles for this scaffold -->
@@ -41,9 +41,14 @@
         </div>
         <div class="row">
           <div tal:condition="list">
-            <ul tal:repeat="item list">
-              <li>${item.value}</li>
-            </ul>
+            <table>
+              <tr>
+                <th>Time</th><th>Label</th><th>Amount</th>
+              </tr>
+              <tr tal:repeat="item list">
+                <td>${item.datetime}</td><td>${item.label}</td><td>${item.value}</td>
+              </tr>
+            </table>
           </div>
         </div>
         <div class="row">
@@ -68,8 +73,8 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="//oss.maxcdn.com/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="//oss.maxcdn.com/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script src="//cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js"></script>
+    <script src="//oss.maxcdn.com/libs/jquery/1.10.2/jquery.js"></script>
+    <script src="//oss.maxcdn.com/libs/twitter-bootstrap/3.0.3/js/bootstrap.js"></script>
+    <script src="//cdn.datatables.net/1.10.3/js/jquery.dataTables.js"></script>
   </body>
 </html>

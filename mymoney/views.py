@@ -12,6 +12,9 @@ from .models import (
     )
 
 
+import logging
+log = logging.getLogger(__name__)
+
 #@view_config(route_name='login', renderer='templates/login.pt')
 def login(request):
     pass
@@ -27,6 +30,9 @@ def item_view(request):
     #userid = request.matchdict['userid']
     userid = request.session['userid']
     item_list = DBSession.query(Item).filter_by(userid=userid).order_by(Item.datetime).all()
+
+    for item in item_list:
+        log.debug("return: %s", item.label)
 
     return dict(project='MyMoney', list=item_list)
 
